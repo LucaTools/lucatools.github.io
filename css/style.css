@@ -1,0 +1,550 @@
+/* Hybrid Style - Dark Mode with Gradient Accents */
+:root {
+    /* Color scheme - dark background with gradient accents */
+    --primary-gradient: linear-gradient(135deg, #10b981, #60a5fa, #8b5cf6);
+    --primary-color: #10b981; /* Green accent from dark theme */
+    --secondary-color: #8b5cf6; /* Purple from gradient theme */
+    --background-color: #111827; /* Dark background from alternative style */
+    --surface-color: #1f2937; /* Dark surface color */
+    --text-color: #f9fafb; /* Light text for dark background */
+    --text-secondary: #d1d5db; /* Secondary light text */
+    --code-bg-color: #000000; /* Black code background */
+    --code-text-color: #10b981; /* Green code text */
+    --border-radius: 10px; /* Slightly rounded corners */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    /* Subtle gradient background radials with low opacity */
+    background-image: 
+        radial-gradient(circle at 25% 10%, rgba(16, 185, 129, 0.08) 0%, transparent 25%),
+        radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: var(--primary-gradient);
+    transition: width 0.3s;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+h1, h2, h3, h4 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h2 {
+    font-size: 2.3rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 4px;
+    bottom: -8px;
+    left: 0;
+    background: var(--primary-gradient);
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+pre {
+    background-color: var(--code-bg-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    position: relative;
+    border: 1px solid #374151;
+}
+
+code {
+    color: var(--code-text-color);
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.9rem;
+    white-space: pre;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 7rem 0 4rem;
+    position: relative;
+}
+
+.logo {
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Gradient pulse animation from gradient style with dark mode colors */
+.logo::after {
+    content: '';
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(139, 92, 246, 0.1) 50%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.5;
+    }
+}
+
+.logo-image {
+    max-width: 150px;
+    height: auto;
+    /* Combine drop shadow with glow effect - enhanced for the alt logo */
+    filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.5));
+}
+
+.tagline {
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Install command section */
+.install-command {
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.install-command pre {
+    padding-right: 140px; /* Space for the copy button */
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    border-left: 4px solid transparent;
+    border-image: var(--primary-gradient);
+    border-image-slice: 1;
+}
+
+.copy-button {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.copy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Terminal demo section */
+.terminal-demo {
+    text-align: center;
+    margin: 4rem auto 3rem;
+    max-width: 900px;
+}
+
+.terminal-window {
+    background: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.terminal-window:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.4);
+}
+
+.terminal-header {
+    background: #333333;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #444444;
+}
+
+.terminal-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.control.close {
+    background: #ff5f56;
+}
+
+.control.minimize {
+    background: #ffbd2e;
+}
+
+.control.maximize {
+    background: #27ca3f;
+}
+
+.terminal-title {
+    color: #cccccc;
+    font-size: 13px;
+    font-weight: 500;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.terminal-body {
+    padding: 0;
+    background: #000000;
+}
+
+.terminal-screenshot {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+}
+
+.demo-caption {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Features section */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.feature {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Gradient border effect */
+.feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-gradient);
+    z-index: -1;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature h3 {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.feature p {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+}
+
+/* Usage section */
+.usage {
+    padding: 4rem 0;
+}
+
+.command-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.example {
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.example-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.example-title .command {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+.example-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.example pre {
+    margin-bottom: 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--text-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 4rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+}
+
+/* Removed theme toggle button styles */
+
+/* Workflow steps styling */
+.workflow-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.step {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-gradient);
+}
+
+.step h3 {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.step p {
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+}
+
+.step p:last-child {
+    margin-bottom: 0;
+}
+
+.step code {
+    font-size: 0.85rem;
+    display: inline-block;
+    max-width: 100%;
+    margin-top: 4px;
+    white-space: normal;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+/* Requirements list styling */
+.requirements-list {
+    list-style: none;
+    margin: 0.5rem 0 1rem;
+    padding: 0;
+}
+
+.requirements-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.requirements-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Badge styling */
+.badges {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.badges img {
+    height: 22px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+    
+    .tagline {
+        font-size: 1.3rem;
+    }
+    
+    .features, .command-examples, .workflow-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature, .example, .step {
+        padding: 1.5rem;
+    }
+    
+    .terminal-demo {
+        margin: 3rem auto 2rem;
+    }
+    
+    .demo-caption {
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+/* Card hover effects */
+.feature, .example {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover, .example:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Removed style switcher and logo selector styles */
