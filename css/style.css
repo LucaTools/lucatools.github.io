@@ -1,19 +1,31 @@
-/* Hybrid Style - Dark Mode with Gradient Accents */
+/* Modern CLI Aesthetic - Dark Mode with Neon & Glassmorphism */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
 :root {
-    /* Color scheme - dark background with gradient accents */
-    --primary-gradient: linear-gradient(135deg, #10b981, #60a5fa, #8b5cf6);
-    --primary-color: #10b981; /* Green accent from dark theme */
-    --secondary-color: #8b5cf6; /* Purple from gradient theme */
-    --background-color: #111827; /* Dark background from alternative style */
-    --surface-color: #1f2937; /* Dark surface color */
-    --text-color: #f9fafb; /* Light text for dark background */
-    --text-secondary: #d1d5db; /* Secondary light text */
-    --code-bg-color: #000000; /* Black code background */
-    --code-text-color: #10b981; /* Green code text */
-    --border-radius: 10px; /* Slightly rounded corners */
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    /* Color Palette */
+    --bg-color: #030712;
+    /* Deepest blue/black */
+    --surface-color-low: rgba(255, 255, 255, 0.03);
+    --surface-color-high: rgba(255, 255, 255, 0.08);
+    --primary-accent: #10b981;
+    /* Emerald Green */
+    --secondary-accent: #8b5cf6;
+    /* Violet */
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --border-color: rgba(255, 255, 255, 0.1);
+
+    /* Gradients */
+    --primary-gradient: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
+    --glow-gradient: radial-gradient(circle at center, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+
+    /* Layout */
+    --max-width: 1200px;
+    --border-radius: 12px;
+    --glass-blur: blur(12px);
 }
 
+/* Base Reset & Typography */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,463 +33,379 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    /* Subtle gradient background radials with low opacity */
-    background-image: 
-        radial-gradient(circle at 25% 10%, rgba(16, 185, 129, 0.08) 0%, transparent 25%),
-        radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
+    overflow-x: hidden;
+    min-height: 100vh;
+
+    /* Advanced Grid Background */
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 25%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+    background-position: 0 0, 0 0, -1px -1px, -1px -1px;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
+/* Entrance Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: all 0.3s;
-    position: relative;
+.hero>*:not(.logo-container),
+.usage-section>* {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
 }
 
-a:hover {
-    color: var(--secondary-color);
+.hero h1 {
+    animation-delay: 0.1s;
 }
 
-a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background: var(--primary-gradient);
-    transition: width 0.3s;
+.hero .tagline {
+    animation-delay: 0.2s;
 }
 
-a:hover::after {
-    width: 100%;
+.hero .install-box {
+    animation-delay: 0.3s;
 }
 
-h1, h2, h3, h4 {
+.hero .terminal-demo {
+    animation-delay: 0.4s;
+}
+
+.hero .features {
+    animation-delay: 0.5s;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    letter-spacing: -0.02em;
     line-height: 1.2;
-    margin-bottom: 1rem;
 }
 
 h1 {
-    font-size: 4.2rem;
+    font-size: 3.5rem;
+    /* Fallback */
+    font-size: clamp(3rem, 5vw, 5rem);
     font-weight: 800;
-    margin-bottom: 1rem;
-    letter-spacing: -0.03em;
-    background: var(--primary-gradient);
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #ffffff 30%, #9ca3af 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 h2 {
-    font-size: 2.3rem;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
+    font-size: 2rem;
+    margin: 4rem 0 2rem;
     position: relative;
     display: inline-block;
-}
-
-h2::after {
-    content: '';
-    position: absolute;
-    width: 60%;
-    height: 4px;
-    bottom: -8px;
-    left: 0;
-    background: var(--primary-gradient);
-    border-radius: 2px;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 0.75rem;
-    font-weight: 600;
-    color: var(--primary-color);
+    color: #fff;
 }
 
 p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
     color: var(--text-secondary);
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+
+a {
+    color: var(--primary-accent);
+    text-decoration: none;
+    transition: all 0.2s;
+    border-bottom: 1px solid transparent;
+}
+
+a:hover {
+    color: white;
+    text-shadow: 0 0 8px var(--primary-accent);
+    border-bottom-color: var(--primary-accent);
+}
+
+/* Code & Terminal */
+code,
+pre {
+    font-family: 'JetBrains Mono', monospace;
 }
 
 pre {
-    background-color: var(--code-bg-color);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
+    background: #0f1117;
+    /* Darker code block */
+    padding: 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
     overflow-x: auto;
-    margin: 1.5rem 0;
-    position: relative;
-    border: 1px solid #374151;
+    font-size: 0.9rem;
+    color: #e5e7eb;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 code {
-    color: var(--code-text-color);
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-    font-size: 0.9rem;
-    white-space: pre;
+    font-size: 0.9em;
+    color: #e5e7eb;
 }
 
-/* Hero section */
+.command {
+    color: var(--primary-accent);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Layout Utilities */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Hero Section */
 .hero {
     text-align: center;
-    padding: 7rem 0 4rem;
+    padding: 8vh 0 4rem;
     position: relative;
 }
 
-.logo {
-    margin-bottom: 2.5rem;
+.logo-container {
+    margin-bottom: 2rem;
     position: relative;
     display: inline-block;
-}
-
-/* Gradient pulse animation from gradient style with dark mode colors */
-.logo::after {
-    content: '';
-    position: absolute;
-    width: 160px;
-    height: 160px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(139, 92, 246, 0.1) 50%, transparent 70%);
-    border-radius: 50%;
-    z-index: -1;
-    animation: pulse 4s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: translate(-50%, -50%) scale(0.9);
-        opacity: 0.5;
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(0.9);
-        opacity: 0.5;
-    }
+    animation: float 6s ease-in-out infinite;
 }
 
 .logo-image {
-    max-width: 150px;
-    height: auto;
-    /* Combine drop shadow with glow effect - enhanced for the alt logo */
-    filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.5));
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(0 0 30px rgba(16, 185, 129, 0.4));
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.logo-container:hover .logo-image {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .tagline {
-    font-size: 1.6rem;
-    margin-bottom: 3rem;
-    color: var(--text-secondary);
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Install command section */
-.install-command {
-    max-width: 1000px;
+    font-size: 1.25rem;
+    max-width: 600px;
     margin: 0 auto 3rem;
-    position: relative;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+    line-height: 1.7;
 }
 
-.install-command pre {
-    padding-right: 140px; /* Space for the copy button */
-    margin: 0;
-    border-radius: 0;
-    border: none;
-    border-left: 4px solid transparent;
-    border-image: var(--primary-gradient);
-    border-image-slice: 1;
-}
-
-.copy-button {
-    position: absolute;
-    right: 12px;
-    top: 12px;
-    background: var(--primary-gradient);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.copy-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Terminal demo section */
-.terminal-demo {
-    text-align: center;
-    margin: 4rem auto 3rem;
-    max-width: 900px;
-}
-
-.terminal-window {
-    background: #1e1e1e;
-    border-radius: 8px;
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-}
-
-.terminal-window:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 40px rgba(16, 185, 129, 0.4);
-}
-
-.terminal-header {
-    background: #333333;
-    padding: 12px 16px;
+/* Install Command Box */
+.install-box {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 12px;
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto 4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #444444;
+    gap: 1rem;
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.terminal-controls {
+.install-box:hover {
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 50px rgba(16, 185, 129, 0.25);
+    transform: translateY(-2px);
+}
+
+.install-box code {
+    background: transparent;
+    color: #10b981;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-copy {
+    background: var(--surface-color-high);
+    border: 1px solid var(--border-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.btn-copy:hover {
+    background: var(--primary-accent);
+    color: #000;
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+}
+
+/* Terminal Demo Window */
+.terminal-window {
+    background: #09090b;
+    /* Pitch black terminal bg */
+    border-radius: 12px;
+    border: 1px solid #27272a;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    max-width: 900px;
+    margin: 3rem auto;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.terminal-window:hover {
+    transform: scale(1.01);
+}
+
+.terminal-header {
+    background: #18181b;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #27272a;
+}
+
+.dots {
     display: flex;
     gap: 8px;
 }
 
-.control {
+.dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    display: inline-block;
 }
 
-.control.close {
-    background: #ff5f56;
+.dot-red {
+    background: #ef4444;
 }
 
-.control.minimize {
-    background: #ffbd2e;
+.dot-yellow {
+    background: #f59e0b;
 }
 
-.control.maximize {
-    background: #27ca3f;
+.dot-green {
+    background: #10b981;
 }
 
 .terminal-title {
-    color: #cccccc;
-    font-size: 13px;
-    font-weight: 500;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-left: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #71717a;
 }
 
 .terminal-body {
     padding: 0;
-    background: #000000;
+    font-family: 'JetBrains Mono', monospace;
 }
 
-.terminal-screenshot {
+.terminal-img {
     width: 100%;
-    height: auto;
     display: block;
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
+    opacity: 0.9;
 }
 
 .demo-caption {
-    margin-top: 1.5rem;
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    font-style: italic;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 1rem;
 }
 
-/* Features section */
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.feature {
-    background-color: var(--surface-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-/* Gradient border effect */
-.feature::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--primary-gradient);
-    z-index: -1;
-}
-
-.feature:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.feature h3 {
-    display: inline-block;
-    margin-bottom: 1rem;
-}
-
-.feature p {
-    margin-bottom: 0;
-    color: var(--text-secondary);
-}
-
-/* Usage section */
-.usage {
-    padding: 4rem 0;
-}
-
-.command-examples {
+/* Grid Layouts */
+.grid-3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin: 2rem 0;
 }
 
-.example {
-    background-color: var(--surface-color);
+/* Cards (Features, Steps, Examples) */
+.card {
+    background: var(--surface-color-low);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    height: 100%;
     position: relative;
     overflow: hidden;
 }
 
-.example-title {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.example-title .command {
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    margin-right: 0.5rem;
-}
-
-.example-description {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-}
-
-.example pre {
-    margin-bottom: 0;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 3rem 0;
-    color: var(--text-secondary);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 4rem;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-links a {
-    color: var(--text-secondary);
-}
-
-/* Removed theme toggle button styles */
-
-/* Workflow steps styling */
-.workflow-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.step {
-    background-color: var(--surface-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    position: relative;
-    overflow: hidden;
-}
-
-.step::before {
+.card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
+    width: 100%;
     height: 100%;
-    background: var(--primary-gradient);
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
 }
 
-.step h3 {
-    display: inline-block;
+.card:hover::before {
+    opacity: 1;
+}
+
+.card:hover {
+    background: var(--surface-color-high);
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+    color: var(--text-primary);
     margin-bottom: 1rem;
 }
 
-.step p {
-    margin-bottom: 0.5rem;
-    word-break: break-word;
-}
-
-.step p:last-child {
-    margin-bottom: 0;
-}
-
-.step code {
-    font-size: 0.85rem;
+/* Features Specifics */
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
     display: inline-block;
-    max-width: 100%;
-    margin-top: 4px;
-    white-space: normal;
-    word-break: break-all;
-    overflow-wrap: break-word;
-    line-height: 1.4;
+    filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
 }
 
-/* Requirements list styling */
+/* Usage Section */
+.usage-section {
+    padding: 4rem 0;
+}
+
+/* Requirements List */
 .requirements-list {
     list-style: none;
-    margin: 0.5rem 0 1rem;
-    padding: 0;
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 1rem;
 }
 
 .requirements-list li {
@@ -485,66 +413,71 @@ footer {
     padding-left: 1.5rem;
     margin-bottom: 0.8rem;
     color: var(--text-secondary);
-    font-size: 1rem;
 }
 
 .requirements-list li::before {
-    content: '•';
+    content: '→';
+    /* Modern arrow instead of dot */
     position: absolute;
     left: 0;
-    color: var(--primary-color);
-    font-size: 1.2rem;
+    color: var(--primary-accent);
+    font-weight: bold;
 }
 
-/* Badge styling */
+/* Footer */
+footer {
+    border-top: 1px solid var(--border-color);
+    padding: 4rem 0;
+    text-align: center;
+    margin-top: 4rem;
+    background: linear-gradient(to top, rgba(16, 185, 129, 0.05), transparent);
+}
+
+.footer-links {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
 .badges {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    filter: saturate(0);
+    /* Make badges monochrome initially */
+    transition: filter 0.3s;
+    opacity: 0.7;
 }
 
-.badges img {
-    height: 22px;
+.badges:hover {
+    filter: saturate(1);
+    opacity: 1;
 }
 
-/* Responsive adjustments */
+/* Responsiveness */
 @media (max-width: 768px) {
     h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
-    
-    .tagline {
-        font-size: 1.3rem;
+
+    .install-box {
+        flex-direction: column;
+        text-align: center;
     }
-    
-    .features, .command-examples, .workflow-steps {
+
+    .install-box code {
+        white-space: normal;
+        word-break: break-all;
+        margin-bottom: 1rem;
+    }
+
+    .btn-copy {
+        width: 100%;
+    }
+
+    .grid-3 {
         grid-template-columns: 1fr;
     }
-    
-    .feature, .example, .step {
-        padding: 1.5rem;
-    }
-    
-    .terminal-demo {
-        margin: 3rem auto 2rem;
-    }
-    
-    .demo-caption {
-        font-size: 1rem;
-        margin-top: 1rem;
-    }
 }
-
-/* Card hover effects */
-.feature, .example {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature:hover, .example:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Removed style switcher and logo selector styles */
