@@ -85,7 +85,7 @@
                         <span class="command">Step 1: Install Tools</span>
                     </div>
                     <p class="example-description">Install tools in a single command:</p>
-                    <pre><code>luca install realm/swiftlint@0.53.0</code></pre>
+                    <pre><code>luca install realm/swiftlint@0.62.0</code></pre>
                     <pre><code>luca install tuist/tuist@4.78.0 --asset tuist.zip</code></pre>
                 </div>
 
@@ -170,7 +170,7 @@ tuist --help</code></pre>
         </section>
 
         <section class="benefits usage-section">
-            <h2>Additional Commands</h2>
+            <h2>Additional Features</h2>
 
             <div class="command-examples grid-3">
                 <div class="example card">
@@ -184,8 +184,35 @@ tuist --help</code></pre>
                     <div class="example-title">
                         <span class="command">Uninstallation</span>
                     </div>
-                    <p class="example-description">Remove all installed tools and symlinks:</p>
-                    <pre><code>luca uninstall</code></pre>
+                    <p class="example-description">Remove installed tools and specific versions:</p>
+                    <pre><code>luca uninstall SwiftLint
+luca uninstall SwiftLint@0.62.0</code></pre>
+                </div>
+                <div class="example card">
+                    <div class="example-title">
+                        <span class="command">Unlinking</span>
+                    </div>
+                    <p class="example-description">Unlink tools from a project folder:</p>
+                    <pre><code>luca unlink SwiftLint</code></pre>
+                </div>
+            </div>
+            <div class="command-examples grid-3">
+                <div class="example card">
+                    <div class="example-title">
+                        <span class="command">Binary naming</span>
+                    </div>
+                    <p class="example-description">Specify the binary name for tools shipped as a raw executables:</p>
+                    <pre><code>luca install firebase/firebase-tools@v14.12.1
+  --desired-binary-name firebase</code></pre>
+                </div>
+                <div class="example card">
+                    <div class="example-title">
+                        <span class="command">Checksum validation</span>
+                    </div>
+                    <p class="example-description">Specify checksum for security:</p>
+                    <pre><code>luca install realm/swiftlint@0.62.0 \
+  --checksum 5e1956c22fcc9997cde69c62daeecc78baef88d4c03c07349815df881fc1ce28 \
+  --algorithm sha256</code></pre>
                 </div>
                 <div class="example card">
                     <div class="example-title">
