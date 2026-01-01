@@ -31,6 +31,7 @@
                 <a href="https://github.com/LucaTools/Luca" target="_blank">GitHub repository</a>.
             </p>
 
+            <p style="text-align: center; margin-bottom: 1rem; font-weight: 600;">Installation command</p>
             <div class="install-command install-box">
                 <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LucaTools/LucaScripts/HEAD/install.sh)"</code></pre>
                 <button class="btn-copy" onclick="copyInstallCommand()">Copy</button>
@@ -220,6 +221,45 @@ luca uninstall SwiftLint@0.62.0</code></pre>
                     </div>
                     <p class="example-description">Completely remove Luca from your system:</p>
                     <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LucaTools/LucaScripts/HEAD/uninstall.sh)"</code></pre>
+                </div>
+            </div>
+            <div class="command-examples grid-3">
+                <div class="example card">
+                    <div class="example-title">
+                        <span class="command">List Installed</span>
+                    </div>
+                    <p class="example-description">List all versions of tools installed locally:</p>
+                    <pre><code>luca installed
+
+FirebaseCLI:
+  - 14.12.1
+Sourcery:
+  - 2.2.5
+SwiftLint:
+  - 0.53.0
+  - 0.62.0
+tuist:
+  - 4.78.0</code></pre>
+                </div>
+                <div class="example card">
+                    <div class="example-title">
+                        <span class="command">List Linked</span>
+                    </div>
+                    <p class="example-description">List tools currently linked in the project:</p>
+                    <pre><code>luca linked
+
+FirebaseCLI:
+  version: 14.12.1
+  binary: firebasee
+  location: /Users/alberto/.luca/tools/FirebaseCLI/14.12.1/firebasee
+Sourcery:
+  version: 2.2.5
+  binary: sourcery
+  location: /Users/alberto/.luca/tools/Sourcery/2.2.5/bin/sourcery
+tuist:
+  version: 4.78.0
+  binary: tuist
+  location: /Users/alberto/.luca/tools/tuist/4.78.0/tuist</code></pre>
                 </div>
             </div>
         </section>
