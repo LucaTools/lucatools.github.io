@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luca - Modern Tool Manager</title>
+    <meta name="description" content="Luca is a lightweight, decentralized tool manager for macOS. Manage project-specific tool versions without polluting your global PATH.">
+    <link rel="canonical" href="https://luca.tools/">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -17,9 +19,15 @@
     <meta property="og:title" content="Luca - Modern Tool Manager for macOS" />
     <meta property="og:description"
         content="A lightweight decentralised tool manager for macOS to manage project-specific tool environments." />
-    <meta property="og:image" content="https://lucatools.github.io/images/og-image.png" />
-    <meta property="og:url" content="https://lucatools.github.io/" />
+    <meta property="og:image" content="https://luca.tools/images/og-image.png" />
+    <meta property="og:url" content="https://luca.tools/" />
     <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Luca - Modern Tool Manager for macOS">
+    <meta name="twitter:description" content="A lightweight decentralised tool manager for macOS to manage project-specific tool environments.">
+    <meta name="twitter:image" content="https://luca.tools/images/og-image.png">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KPB6Y4G0Q"></script>
@@ -29,6 +37,25 @@
         gtag('js', new Date());
 
         gtag('config', 'G-6KPB6Y4G0Q');
+    </script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Luca",
+      "operatingSystem": "macOS",
+      "applicationCategory": "DeveloperApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "A lightweight decentralised tool manager for macOS to manage project-specific tool environments.",
+      "image": "https://luca.tools/images/luca-logo-alt.svg",
+      "url": "https://luca.tools/"
+    }
     </script>
 </head>
 
