@@ -10,6 +10,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Fonts included in style.css import, but keeping preconnects for performance -->
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Luca - Modern Tool Manager for macOS" />
+    <meta property="og:description"
+        content="A lightweight decentralised tool manager for macOS to manage project-specific tool environments." />
+    <meta property="og:image" content="https://lucatools.github.io/images/og-image.png" />
+    <meta property="og:url" content="https://lucatools.github.io/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KPB6Y4G0Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6KPB6Y4G0Q');
+    </script>
 </head>
 
 <body>
@@ -31,7 +49,7 @@
                 <a href="https://github.com/LucaTools/Luca" target="_blank">GitHub repository</a>.
             </p>
 
-            <p style="text-align: center; margin-bottom: 1rem; font-weight: 600;">Installation command</p>
+            <p style="text-align: center; margin-bottom: 1rem; font-weight: 600;">Get Started</p>
             <div class="install-command install-box">
                 <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/LucaTools/LucaScripts/HEAD/install.sh)"</code></pre>
                 <button class="btn-copy" onclick="copyInstallCommand()">Copy</button>
@@ -303,6 +321,13 @@ cp -f .build/release/luca /usr/local/bin/luca</code></pre>
             <img src="https://img.shields.io/badge/Swift-5.7+-orange.svg" alt="Swift 5.7+">
             <img src="https://img.shields.io/badge/Platforms-macOS-blue.svg" alt="Platforms: macOS">
             <img src="https://img.shields.io/badge/License-Apache%202-green.svg" alt="License: Apache 2.0">
+        </div>
+        <div class="bmc-container">
+            <a href="https://www.buymeacoffee.com/albertodebortoli" target="_blank">
+                <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"
+                    style="height: 40px !important; width: auto !important;">
+                <span style="margin-left:5px; font-size:18px !important;">Buy me a coffee</span>
+            </a>
         </div>
         <p>Luca is open source and distributed under the Apache 2.0 License.</p>
     </footer>

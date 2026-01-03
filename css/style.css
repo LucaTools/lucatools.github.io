@@ -456,6 +456,37 @@ footer {
     opacity: 1;
 }
 
+.bmc-container {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.bmc-container a {
+    display: inline-flex;
+    align-items: center;
+    background-color: #FFDD00;
+    color: #000000 !important;
+    border-radius: 8px;
+    padding: 0 15px;
+    /* font-family: 'Cookie', cursive; */
+    /* Font specifically for BMC, but falling back for now is fine or standard font */
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: transform 0.2s;
+    height: 50px;
+}
+
+.bmc-container a:hover {
+    transform: scale(1.05);
+    background-color: #FFDD00;
+    text-shadow: none;
+    border-bottom: none;
+    color: #000000 !important;
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
     h1 {
