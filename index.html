@@ -95,8 +95,7 @@
                         <div class="terminal-title">Terminal — luca install</div>
                     </div>
                     <div class="terminal-body">
-                        <img src="images/terminal-run.png"
-                            alt="Luca terminal demo showing simple installation and usage" class="terminal-img">
+                        <div class="terminal-content" id="terminal-content"></div>
                     </div>
                 </div>
                 <p class="demo-caption">See Luca in action - simple installation and immediate tool availability</p>
@@ -144,10 +143,10 @@
                     <p class="example-description">Project-specific tool versions work automatically:</p>
                     <pre><code># In project-1 directory
 $ tuist version
-4.78.0</code></pre>
+4.80.0</code></pre>
                     <pre><code># In project-2 directory
 $ tuist version
-4.67.0</code></pre>
+4.78.0</code></pre>
                 </div>
             </div>
 
@@ -161,11 +160,11 @@ $ tuist version
                     <p class="example-description">Create a <code>Lucafile</code> in your project directory:</p>
                     <pre><code>tools:
 - name: SwiftLint
-  version: 0.53.0
-  url: https://github.com/realm/SwiftLint/releases/download/0.53.0/portable_swiftlint.zip
+  version: 0.62.0
+  url: https://github.com/realm/SwiftLint/releases/download/0.62.0/portable_swiftlint.zip
 - name: Tuist
-  version: 4.78.0
-  url: https://github.com/tuist/tuist/releases/download/4.78.0/tuist.zip</code></pre>
+  version: 4.80.0
+  url: https://github.com/tuist/tuist/releases/download/4.80.0/tuist.zip</code></pre>
                 </div>
 
                 <div class="example card">
@@ -362,6 +361,7 @@ cp -f .build/release/luca /usr/local/bin/luca</code></pre>
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/terminal-animation.js"></script>
     <script>
         function copyInstallCommand() {
             const command = document.querySelector('.install-command code').textContent;

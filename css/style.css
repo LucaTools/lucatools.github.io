@@ -326,9 +326,32 @@ code {
 }
 
 .terminal-img {
-    width: 100%;
-    display: block;
-    opacity: 0.9;
+    display: none;
+    /* Hide if still present */
+}
+
+.terminal-content {
+    height: 320px;
+    padding: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #e5e7eb;
+    overflow-y: hidden;
+    position: relative;
+    background: #09090b;
+}
+
+.terminal-line {
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: var(--primary-accent);
+    margin-right: 8px;
+    font-weight: 700;
 }
 
 .demo-caption {
