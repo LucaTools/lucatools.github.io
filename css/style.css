@@ -264,6 +264,40 @@ code {
     box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
 }
 
+/* Code block copy button */
+.code-block {
+    position: relative;
+}
+
+.btn-code-copy {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0.75rem;
+    background: #1a1d27;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--text-primary);
+    border-radius: 5px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.code-block:hover .btn-code-copy {
+    opacity: 1;
+}
+
+.btn-code-copy:hover {
+    background: var(--primary-accent);
+    color: #000;
+    border-color: var(--primary-accent);
+}
+
 /* Terminal Demo Window */
 .terminal-window {
     background: #09090b;
@@ -744,9 +778,6 @@ footer {
         margin-bottom: 1rem;
     }
 
-    .btn-copy {
-        width: 100%;
-    }
 
     .grid-3 {
         grid-template-columns: 1fr;
