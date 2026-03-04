@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifesto - Luca</title>
+    <meta name="description" content="Why decentralized tool management matters. Luca installs standalone CLI binaries from any release URL. No central registry, no gatekeepers.">
+    <link rel="canonical" href="https://luca.tools/manifesto">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Manifesto - Luca" />
+    <meta property="og:description" content="Why decentralized tool management matters. No central registry, no gatekeepers." />
+    <meta property="og:image" content="https://luca.tools/images/og-image.png" />
+    <meta property="og:url" content="https://luca.tools/manifesto" />
+    <meta property="og:type" content="article" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Manifesto - Luca">
+    <meta name="twitter:description" content="Why decentralized tool management matters. No central registry, no gatekeepers.">
+    <meta name="twitter:image" content="https://luca.tools/images/og-image.png">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KPB6Y4G0Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-6KPB6Y4G0Q');
+    </script>
+</head>
+
+<body>
+    <nav class="page-nav">
+        <a href="/">
+            <img src="images/luca-logo-alt.svg" alt="Luca Logo" class="nav-logo">
+        </a>
+        <a href="/">Luca</a>
+    </nav>
+
+    <div class="manifesto-page">
+        <div class="manifesto-hero">
+            <h1>Manifesto</h1>
+            <p class="subtitle">Why decentralized tool management matters and why the infrastructure already exists.</p>
+        </div>
+
+        <section class="manifesto-prose">
+            <h2>The Problem</h2>
+
+            <p>Standalone CLI tools (linters, formatters, code generators, utilities,etc.) are self-contained binaries. They have no transitive dependencies, no version conflicts with each other, no diamond dependency problems to solve. Yet we distribute them through the same heavyweight registries designed for libraries with complex dependency graphs. Homebrew, for example, wraps every tool in a formula that passes through a central review process, rebuilds bottles across a matrix of macOS versions, and pulls in a full tap repository, providing an infrastructure built for managing system-level packages with deep dependency trees, not for delivering a single binary that is already compiled and ready to run.</p>
+
+            <p>The result is process overhead without a matching benefit. Homebrew formulas need maintainer approval. CocoaPods trunk demands registration. Every tool that flows through a central registry inherits the registry's bottlenecks, politics, and attack surface.</p>
+
+            <p>Even tools designed specifically for CLI tool management add unnecessary layers. <a href="https://github.com/yonaskolb/Mint" target="_blank"><strong>Mint</strong></a> points directly to Git repositories (no registry), but it clones source and compiles locally requiring Xcode and the Swift toolchain even when the binary is already built and published. <a href="https://github.com/jdx/mise" target="_blank"><strong>mise</strong></a> is a capable polyglot manager, but it bundles version management, task running, environment variables, a plugin system, and its own tool registry; a Swiss-army-knife when all you need is to download a binary. Both are good tools solving broader problems. For the narrow case of installing a pre-built standalone binary, they carry unnecessary complexity.</p>
+
+            <h2>The Security Reality</h2>
+
+            <p>Central registries create concentrated attack surfaces. In 2024, CocoaPods Trunk disclosed <strong>three critical CVEs</strong>: pod takeover via unclaimed namespaces (CVE-2024-38368), remote code execution via email validation (CVE-2024-38366), and session hijacking through email header manipulation (CVE-2024-38367). Any pod author's account could have been silently compromised.</p>
+
+            <p>PyPI faced over <strong>500 coordinated typosquatting attacks</strong>, distributing malware through packages named one character off from popular libraries. The centralized model makes this possible: one namespace, one search index, one place where a typo becomes an attack vector.</p>
+
+            <h2>The Pattern Shift</h2>
+
+            <p>The industry is already moving away from centralized submission processes. <strong>Swift Package Manager</strong> replaced CocoaPods' centralized trunk with direct Git URLs, avoiding spec submission and approval queue. SPM still solves the harder problem of dependency resolution for libraries, but the key insight is its <em>distribution model</em>: you point to a repository and a version, and no central authority decides what gets published.</p>
+
+            <p>AI agent skills are following the same pattern. Anthropic defines a <strong>format standard</strong> (YAML frontmatter in Markdown), not a submission process. Any developer can publish a skill by hosting it in a Git repository.</p>
+
+            <blockquote>
+                <em>"Define a format standard, not a submission process."</em>
+            </blockquote>
+
+            <h2>Luca's Approach</h2>
+
+            <p>Luca installs standalone CLI binaries from any URL that serves them, such as GitHub Releases, S3 buckets, or any HTTP endpoint. It operates at the protocol level: give it a URL to a binary archive, and it handles the rest. No formula to write. No registration to complete. No spec to submit. No approval to wait for.</p>
+
+            <p>GitHub Releases happen to be a natural fit. They provide <strong>versioning</strong> through Git tags, <strong>CDN delivery</strong>, <strong>checksums</strong> for integrity verification, and <strong>multi-platform artifacts</strong> in a single release although they are not a requirement. The trade-off is honest: without a central registry, there's no discovery index. You need to know what you want to install. For standalone dev tools, that's usually not a problem as developers choose their linters, formatters, and build tools deliberately, not by browsing a catalog.</p>
+        </section>
+
+        <section>
+            <h2>Principles</h2>
+
+            <ol class="principles-list">
+                <li class="principle-item">
+                    <h3>No Registry Required</h3>
+                    <p>If it's a binary at a release URL, Luca can install it. No formula, no spec, no trunk account.</p>
+                </li>
+                <li class="principle-item">
+                    <h3>Distributed Over Centralized</h3>
+                    <p>Tools live where their authors publish them. No single registry stands between you and a binary.</p>
+                </li>
+                <li class="principle-item">
+                    <h3>Format Over Process</h3>
+                    <p>Define a conformance format, not a submission process. A Lucafile is YAML. A Luca-compatible tool is any release URL serving a binary.</p>
+                </li>
+                <li class="principle-item">
+                    <h3>Project-Local, Not Global</h3>
+                    <p>Tool versions belong to projects, not machines. <code>.luca/active/</code> symlinks per project. No PATH pollution.</p>
+                </li>
+                <li class="principle-item">
+                    <h3>Automatic Platform Detection</h3>
+                    <p>No manual binary picking. Luca can auto-detect darwin/linux, arm64/x86_64 from release assets.</p>
+                </li>
+                <li class="principle-item">
+                    <h3>Zero Configuration Overhead</h3>
+                    <p>No lockfiles, no resolve steps, no dependency graphs. Specify tool + version. Done.</p>
+                </li>
+                <li class="principle-item">
+                    <h3>Transparent and Auditable</h3>
+                    <p>Tools in <code>~/.luca/tools/{name}/{version}/</code>, symlinks in <code>.luca/active/</code>. No magic, no hidden state.</p>
+                </li>
+                <li class="principle-item">
+                    <h3>Open Distribution</h3>
+                    <p>Any tool author publishes platform binaries wherever they choose: GitHub, S3, their own server. No gatekeepers, no review bottlenecks.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="manifesto-cta">
+            <h2>Join the Movement</h2>
+            <p>Decentralized tool management isn't a future vision - it's how Luca works today.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/LucaTools/Luca" target="_blank" class="btn-primary">View on GitHub</a>
+                <a href="/" class="btn-secondary">Get Started</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="badges">
+            <img src="https://img.shields.io/badge/Swift-5.7+-orange.svg" alt="Swift 5.7+">
+            <img src="https://img.shields.io/badge/Platforms-macOS%20|%20Linux-blue.svg" alt="Platforms: macOS">
+            <img src="https://img.shields.io/badge/License-Apache%202-green.svg" alt="License: Apache 2.0">
+        </div>
+        <div class="bmc-container">
+            <a href="https://www.buymeacoffee.com/albertodebortoli" target="_blank">
+                <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"
+                    style="height: 40px !important; width: auto !important;">
+                <span style="margin-left:5px; font-size:18px !important;">Buy me a coffee</span>
+            </a>
+        </div>
+        <p>Luca is open source and distributed under the Apache 2.0 License.</p>
+    </footer>
+</body>
+
+</html>

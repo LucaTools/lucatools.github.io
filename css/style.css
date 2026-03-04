@@ -510,6 +510,223 @@ footer {
     color: #000000 !important;
 }
 
+/* Page Navigation (secondary pages) */
+.page-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: rgba(3, 7, 18, 0.85);
+    backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-nav .nav-logo {
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.4));
+}
+
+.page-nav a {
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-bottom: none;
+}
+
+/* Manifesto Page */
+.manifesto-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.manifesto-hero {
+    text-align: center;
+    padding: 6rem 0 3rem;
+}
+
+.manifesto-hero h1 {
+    margin-bottom: 1rem;
+}
+
+.manifesto-hero .subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Manifesto Prose */
+.manifesto-prose {
+    margin-bottom: 4rem;
+}
+
+.manifesto-prose h2 {
+    margin: 3rem 0 1.5rem;
+    display: block;
+}
+
+.manifesto-prose p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.manifesto-prose strong {
+    color: var(--text-primary);
+}
+
+.manifesto-prose em {
+    color: var(--primary-accent);
+    font-style: italic;
+}
+
+.manifesto-prose blockquote {
+    border-left: 3px solid var(--primary-accent);
+    background: var(--surface-color-low);
+    backdrop-filter: blur(10px);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.manifesto-prose blockquote em {
+    color: var(--primary-accent);
+}
+
+/* Principles List */
+.principles-list {
+    list-style: none;
+    counter-reset: principle;
+    padding: 0;
+    margin: 2rem 0 4rem;
+}
+
+.principle-item {
+    counter-increment: principle;
+    background: var(--surface-color-low);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1.5rem 1.5rem 4.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.principle-item::before {
+    content: counter(principle);
+    position: absolute;
+    left: 1.25rem;
+    top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.principle-item:hover {
+    transform: translateX(6px);
+    background: var(--surface-color-high);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.4);
+}
+
+.principle-item h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.principle-item p {
+    margin-bottom: 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Manifesto CTA */
+.manifesto-cta {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.manifesto-cta h2 {
+    margin: 0 0 1rem;
+    display: block;
+}
+
+.manifesto-cta p {
+    margin-bottom: 2rem;
+}
+
+.manifesto-cta .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-accent);
+    color: #000;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+    border-bottom: none;
+}
+
+.btn-primary:hover {
+    background: #059669;
+    color: #000;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    transform: translateY(-2px);
+    text-shadow: none;
+    border-bottom: none;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--surface-color-high);
+    color: var(--text-primary);
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    text-shadow: none;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
     h1 {
@@ -533,5 +750,23 @@ footer {
 
     .grid-3 {
         grid-template-columns: 1fr;
+    }
+
+    .manifesto-hero {
+        padding: 4rem 0 2rem;
+    }
+
+    .principle-item {
+        padding-left: 3.5rem;
+    }
+
+    .principle-item::before {
+        font-size: 1.25rem;
+        left: 1rem;
+    }
+
+    .manifesto-cta .cta-buttons {
+        flex-direction: column;
+        align-items: center;
     }
 }
