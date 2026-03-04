@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luca Design Preview — Pick a Direction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #18181b;
+      color: #e4e4e7;
+      font-family: Inter, sans-serif;
+      padding: 2rem;
+    }
+
+    .page-title {
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #a1a1aa;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .page-subtitle {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #71717a;
+      margin-bottom: 3rem;
+    }
+
+    .variants {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .variant-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .variant-label {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.75rem 1rem;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .variant-label.a { background: #111; color: #fff; border: 1px solid #333; border-bottom: none; }
+    .variant-label.b { background: #060810; color: #4f8fff; border: 1px solid #1e2a48; border-bottom: none; }
+    .variant-label.c { background: #040a05; color: #10b981; border: 1px solid #1a2e1c; border-bottom: none; }
+
+    /* ─── OPTION A: Monochrome Precision ─── */
+    .variant-a {
+      background: #000;
+      border: 1px solid #333;
+      border-radius: 0 0 12px 12px;
+      padding: 2.5rem 2rem 2rem;
+      font-family: Inter, sans-serif;
+    }
+    .variant-a .hero-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .variant-a h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .variant-a .tagline {
+      font-size: 0.9rem;
+      color: #888;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+      max-width: 380px;
+    }
+    .variant-a .install-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 2rem;
+    }
+    .variant-a .install-box code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #ccc;
+    }
+    .variant-a .install-box .copy-btn {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #555;
+      border: 1px solid #333;
+      background: #000;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      cursor: default;
+      letter-spacing: 0.05em;
+    }
+    .variant-a .section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 0.75rem;
+    }
+    .variant-a .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .variant-a .card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 6px;
+      padding: 1rem;
+      transition: border-color 0.15s;
+    }
+    .variant-a .card:hover { border-color: #fff; }
+    .variant-a .card-icon {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .variant-a .card h3 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.01em;
+    }
+    .variant-a .card p {
+      font-size: 0.68rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    .variant-a .divider {
+      height: 1px;
+      background: #1a1a1a;
+      margin: 2rem 0 1.5rem;
+    }
+    .variant-a .section-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    /* ─── OPTION B: Electric Cobalt ─── */
+    .variant-b {
+      background: #060810;
+      border: 1px solid #1e2a48;
+      border-radius: 0 0 12px 12px;
+      padding: 2.5rem 2rem 2rem;
+      font-family: Inter, sans-serif;
+    }
+    .variant-b .hero-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #4f8fff;
+      background: rgba(79,143,255,0.08);
+      border: 1px solid rgba(79,143,255,0.2);
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .variant-b h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-shadow: 0 0 60px rgba(79,143,255,0.3);
+    }
+    .variant-b h1 span { color: #4f8fff; }
+    .variant-b .tagline {
+      font-size: 0.875rem;
+      color: #8899bb;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+      max-width: 380px;
+    }
+    .variant-b .install-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #0e1120;
+      border: 1px solid #1e2a48;
+      border-top: 2px solid #4f8fff;
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 2rem;
+    }
+    .variant-b .install-box code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #8899bb;
+    }
+    .variant-b .install-box .copy-btn {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #4f8fff;
+      border: 1px solid rgba(79,143,255,0.3);
+      background: rgba(79,143,255,0.06);
+      padding: 0.25rem 0.6rem;
+      border-radius: 3px;
+      cursor: default;
+    }
+    .variant-b .section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #4f8fff;
+      margin-bottom: 0.75rem;
+    }
+    .variant-b .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .variant-b .card {
+      background: #0e1120;
+      border: 1px solid #1e2a48;
+      border-top: 2px solid #4f8fff;
+      border-radius: 4px;
+      padding: 1rem;
+    }
+    .variant-b .card:hover {
+      box-shadow: 0 0 20px rgba(79,143,255,0.15);
+    }
+    .variant-b .card-icon {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .variant-b .card h3 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #c8d6f0;
+      margin-bottom: 0.35rem;
+    }
+    .variant-b .card p {
+      font-size: 0.68rem;
+      color: #4a5a7a;
+      line-height: 1.5;
+    }
+    .variant-b .divider {
+      height: 1px;
+      background: #0e1628;
+      margin: 2rem 0 1.5rem;
+    }
+    .variant-b .section-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    /* ─── OPTION C: Refined Emerald ─── */
+    .variant-c {
+      background: #040a05;
+      border: 1px solid #1a2e1c;
+      border-radius: 0 0 12px 12px;
+      padding: 2.5rem 2rem 2rem;
+      font-family: Inter, sans-serif;
+    }
+    .variant-c .hero-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #10b981;
+      background: rgba(16,185,129,0.06);
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .variant-c h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .variant-c .tagline {
+      font-size: 0.875rem;
+      color: #6b7c70;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+      max-width: 380px;
+    }
+    .variant-c .install-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #0d1a0f;
+      border: 1px solid #1a2e1c;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 2rem;
+    }
+    .variant-c .install-box code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #6b8c72;
+    }
+    .variant-c .install-box .copy-btn {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #10b981;
+      border: 1px solid rgba(16,185,129,0.3);
+      background: rgba(16,185,129,0.06);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      cursor: default;
+    }
+    .variant-c .section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #10b981;
+      opacity: 0.7;
+      margin-bottom: 0.75rem;
+    }
+    .variant-c .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .variant-c .card {
+      background: #0d1a0f;
+      border: 1px solid #1a2e1c;
+      border-left: 3px solid #10b981;
+      border-radius: 0 6px 6px 0;
+      padding: 1rem;
+    }
+    .variant-c .card:hover {
+      background: #111f13;
+    }
+    .variant-c .card-icon {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .variant-c .card h3 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #c4d9c7;
+      margin-bottom: 0.35rem;
+    }
+    .variant-c .card p {
+      font-size: 0.68rem;
+      color: #4a5c4d;
+      line-height: 1.5;
+    }
+    .variant-c .divider {
+      height: 1px;
+      background: #0d1a0f;
+      margin: 2rem 0 1.5rem;
+    }
+    .variant-c .section-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    /* Quick Start snippet for all three */
+    .qs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+    .qs-card-a {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 6px;
+      padding: 0.75rem;
+    }
+    .qs-card-a .qs-title {
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+    .qs-card-a pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      color: #777;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+    .qs-card-b {
+      background: #0e1120;
+      border: 1px solid #1e2a48;
+      border-top: 2px solid #4f8fff;
+      border-radius: 4px;
+      padding: 0.75rem;
+    }
+    .qs-card-b .qs-title {
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #4f8fff;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+    .qs-card-b pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      color: #5a6a8a;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+    .qs-card-c {
+      background: #0d1a0f;
+      border: 1px solid #1a2e1c;
+      border-left: 3px solid #10b981;
+      border-radius: 0 6px 6px 0;
+      padding: 0.75rem;
+    }
+    .qs-card-c .qs-title {
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #10b981;
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+    .qs-card-c pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      color: #3a5c3d;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    /* Footer note */
+    .footer-note {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #52525b;
+    }
+  </style>
+</head>
+<body>
+
+  <p class="page-title">Luca Website — Design Directions</p>
+  <p class="page-subtitle">Three distinct approaches. Pick one and I'll implement it fully.</p>
+
+  <div class="variants">
+
+    <!-- ── A: Monochrome Precision ── -->
+    <div class="variant-wrapper">
+      <div class="variant-label a">A · Monochrome Precision</div>
+      <div class="variant-a">
+        <div class="hero-label">Tool Manager · macOS</div>
+        <h1>Luca</h1>
+        <p class="tagline">A minimalistic, lightweight, decentralised tool manager for macOS to manage project-specific tool environments.</p>
+        <div class="install-box">
+          <code>curl -fsSL https://luca.tools/install.sh | bash</code>
+          <span class="copy-btn">Copy</span>
+        </div>
+        <div class="section-label">Features</div>
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">📦</div>
+            <h3>Version-specific Installs</h3>
+            <p>Pin exact tool versions per project without global PATH pollution.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🛡️</div>
+            <h3>Project Isolation</h3>
+            <p>Each project runs its own tool versions, zero conflicts.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Zero Configuration</h3>
+            <p>One command. No lockfiles, no globals, no setup tax.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🤝</div>
+            <h3>Team Sharing</h3>
+            <p>Commit a Lucafile. Everyone gets identical tools.</p>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="section-title">Quick Start</div>
+        <div class="qs-grid">
+          <div class="qs-card-a">
+            <div class="qs-title">Step 1 — Install a tool</div>
+            <pre>luca install realm/swiftlint@0.62.0</pre>
+          </div>
+          <div class="qs-card-a">
+            <div class="qs-title">Step 2 — Use it</div>
+            <pre>swiftlint --help
+tuist build</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── B: Electric Cobalt ── -->
+    <div class="variant-wrapper">
+      <div class="variant-label b">B · Electric Cobalt</div>
+      <div class="variant-b">
+        <div class="hero-badge">Tool Manager · macOS</div>
+        <h1>Lu<span>ca</span></h1>
+        <p class="tagline">A minimalistic, lightweight, decentralised tool manager for macOS to manage project-specific tool environments.</p>
+        <div class="install-box">
+          <code>curl -fsSL https://luca.tools/install.sh | bash</code>
+          <span class="copy-btn">Copy</span>
+        </div>
+        <div class="section-label">Features</div>
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">📦</div>
+            <h3>Version-specific Installs</h3>
+            <p>Pin exact tool versions per project without global PATH pollution.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🛡️</div>
+            <h3>Project Isolation</h3>
+            <p>Each project runs its own tool versions, zero conflicts.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Zero Configuration</h3>
+            <p>One command. No lockfiles, no globals, no setup tax.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🤝</div>
+            <h3>Team Sharing</h3>
+            <p>Commit a Lucafile. Everyone gets identical tools.</p>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="section-title">Quick Start</div>
+        <div class="qs-grid">
+          <div class="qs-card-b">
+            <div class="qs-title">Step 1 — Install a tool</div>
+            <pre>luca install realm/swiftlint@0.62.0</pre>
+          </div>
+          <div class="qs-card-b">
+            <div class="qs-title">Step 2 — Use it</div>
+            <pre>swiftlint --help
+tuist build</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── C: Refined Emerald ── -->
+    <div class="variant-wrapper">
+      <div class="variant-label c">C · Refined Emerald</div>
+      <div class="variant-c">
+        <div class="hero-badge">Tool Manager · macOS</div>
+        <h1>Luca</h1>
+        <p class="tagline">A minimalistic, lightweight, decentralised tool manager for macOS to manage project-specific tool environments.</p>
+        <div class="install-box">
+          <code>curl -fsSL https://luca.tools/install.sh | bash</code>
+          <span class="copy-btn">Copy</span>
+        </div>
+        <div class="section-label">Features</div>
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">📦</div>
+            <h3>Version-specific Installs</h3>
+            <p>Pin exact tool versions per project without global PATH pollution.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🛡️</div>
+            <h3>Project Isolation</h3>
+            <p>Each project runs its own tool versions, zero conflicts.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Zero Configuration</h3>
+            <p>One command. No lockfiles, no globals, no setup tax.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🤝</div>
+            <h3>Team Sharing</h3>
+            <p>Commit a Lucafile. Everyone gets identical tools.</p>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="section-title">Quick Start</div>
+        <div class="qs-grid">
+          <div class="qs-card-c">
+            <div class="qs-title">Step 1 — Install a tool</div>
+            <pre>luca install realm/swiftlint@0.62.0</pre>
+          </div>
+          <div class="qs-card-c">
+            <div class="qs-title">Step 2 — Use it</div>
+            <pre>swiftlint --help
+tuist build</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="footer-note">Tell me which direction (A, B, or C) and I'll rewrite index.html and style.css to match.</p>
+
+</body>
+</html>

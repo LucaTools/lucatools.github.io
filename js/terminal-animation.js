@@ -204,13 +204,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const style = document.createElement('style');
     style.textContent = `
         .terminal-content {
-            min-height: 300px;
-            padding: 20px;
+            min-height: 240px;
+            padding: 16px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
+            font-size: clamp(11px, 2.5vw, 13px);
             line-height: 1.6;
-            color: #e5e7eb;
+            color: #aaa;
             overflow-y: hidden;
+            overflow-x: hidden;
             position: relative;
         }
         .terminal-line {
@@ -218,18 +219,18 @@ document.addEventListener('DOMContentLoaded', () => {
             min-height: 1.6em;
         }
         .prompt {
-            color: #10b981;
+            color: #fff;
             margin-right: 8px;
         }
         .text-green {
-            color: #10b981;
+            color: #ccc;
         }
         .command-line::after {
             content: '▋';
             display: inline-block;
             vertical-align: bottom;
             animation: blink 1s step-start infinite;
-            color: #10b981;
+            color: #fff;
             margin-left: 4px;
         }
         /* Only show cursor on the last command line */

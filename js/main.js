@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const text = pre.querySelector('code') ? pre.querySelector('code').textContent : pre.textContent;
             navigator.clipboard.writeText(text);
             btn.innerHTML = CHECK_ICON;
-            btn.style.color = '#10b981';
-            btn.style.borderColor = '#10b981';
-            btn.style.background = 'rgba(16, 185, 129, 0.15)';
+            btn.style.color = '#fff';
+            btn.style.borderColor = '#fff';
+            btn.style.background = '';
             setTimeout(() => {
                 btn.innerHTML = CLIPBOARD_ICON;
                 btn.style.color = '';
