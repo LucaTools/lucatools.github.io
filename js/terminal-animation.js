@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             delay: 800
         },
         {
-            text: '🔗 Created symlink to /Users/alberto/MyProject/.luca/active/swiftlint',
+            text: '🔗 Created symlink to /Users/alberto/MyProject/.luca/tools/swiftlint',
             type: 'output',
             delay: 800
         },
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             delay: 800
         },
         {
-            text: '🔗 Created symlink to /Users/alberto/MyProject/.luca/active/tuist',
+            text: '🔗 Created symlink to /Users/alberto/MyProject/.luca/tools/tuist',
             type: 'output',
             delay: 800
         },
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             delay: 800
         },
         {
-            text: '🔗 Recreated symlink at /Users/alberto/MyProject/.luca/active/swiftlint',
+            text: '🔗 Recreated symlink at /Users/alberto/MyProject/.luca/tools/swiftlint',
             type: 'output',
             delay: 800
         },
