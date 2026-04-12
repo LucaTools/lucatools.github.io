@@ -140,6 +140,57 @@ document.addEventListener('DOMContentLoaded', () => {
             delay: 4000
         },
         {
+            text: 'clear',
+            type: 'command',
+            action: 'clear',
+            delay: 500
+        },
+        {
+            text: 'luca install vercel-labs/agent-skills',
+            type: 'command',
+            delay: 1000
+        },
+        {
+            text: '',
+            type: 'output',
+            delay: 0
+        },
+        {
+            text: '🧠 Detecting skills to install...',
+            type: 'output',
+            delay: 800
+        },
+        {
+            text: '🧠 Installing skills for the current project.',
+            type: 'output',
+            delay: 800
+        },
+        {
+            text: '',
+            type: 'output',
+            delay: 0
+        },
+        {
+            text: '🧩 Installing skills from vercel-labs/agent-skills...',
+            type: 'output',
+            delay: 800
+        },
+        {
+            text: '🙌 Skills from vercel-labs/agent-skills installed for the current project.',
+            type: 'output',
+            delay: 1200
+        },
+        {
+            text: '',
+            type: 'output',
+            delay: 0
+        },
+        {
+            text: '🚀 Skills have been installed for the current project.',
+            type: 'success',
+            delay: 4000
+        },
+        {
             type: 'reset',
             action: 'clear',
             delay: 500
@@ -204,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const style = document.createElement('style');
     style.textContent = `
         .terminal-content {
-            min-height: 240px;
+            min-height: 260px;
             padding: 16px;
             font-family: 'JetBrains Mono', monospace;
             font-size: clamp(11px, 2.5vw, 13px);

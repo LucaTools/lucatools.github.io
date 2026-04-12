@@ -81,6 +81,8 @@
             <p>Luca installs standalone CLI binaries from any URL that serves them, such as GitHub Releases, S3 buckets, or any HTTP endpoint. It operates at the protocol level: give it a URL to a binary archive, and it handles the rest. No formula to write. No registration to complete. No spec to submit. No approval to wait for.</p>
 
             <p>GitHub Releases happen to be a natural fit. They provide <strong>versioning</strong> through Git tags, <strong>CDN delivery</strong>, <strong>checksums</strong> for integrity verification, and <strong>multi-platform artifacts</strong> in a single release although they are not a requirement. The trade-off is honest: without a central registry, there's no discovery index. You need to know what you want to install. For standalone dev tools, that's usually not a problem as developers choose their linters, formatters, and build tools deliberately, not by browsing a catalog.</p>
+
+            <p>Luca applies the same decentralized philosophy to <strong>agentic skills</strong>. Skills are Markdown files hosted in Git repositories. Luca clones them and symlinks them into agent-specific directories — <code>.claude/skills/</code>, <code>.agents/skills/</code>, and others — for over 40 AI coding agents. No skill registry. No approval process. The same URL-based, format-over-process approach that works for tools works for skills.</p>
         </section>
 
         <section>
@@ -101,7 +103,7 @@
                 </li>
                 <li class="principle-item">
                     <h3>Project-Local, Not Global</h3>
-                    <p>Tool versions belong to projects, not machines. <code>.luca/tools/</code> symlinks per project. No PATH pollution.</p>
+                    <p>Tool versions belong to projects, not machines. <code>.luca/tools/</code> symlinks per project. Skills are symlinked to agent-specific directories. No PATH pollution.</p>
                 </li>
                 <li class="principle-item">
                     <h3>Automatic Platform Detection</h3>

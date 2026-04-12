@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luca - Modern Tool Manager</title>
-    <meta name="description" content="Luca is a minimalistic, lightweight, decentralized tool manager for macOS. Manage project-specific tool versions without polluting your global PATH.">
+    <title>Luca - Modern Tool & Skill Manager</title>
+    <meta name="description" content="Luca is a minimalistic, lightweight, decentralized tool and skill manager for macOS and Linux. Manage project-specific tool versions and install agentic skills for 40+ AI coding agents.">
     <link rel="canonical" href="https://luca.tools/">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -16,17 +16,17 @@
     <!-- Fonts included in style.css import, but keeping preconnects for performance -->
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Luca - Modern Tool Manager for macOS" />
+    <meta property="og:title" content="Luca - Modern Tool & Skill Manager" />
     <meta property="og:description"
-        content="A minimalistic, lightweight, decentralised tool manager for macOS to manage project-specific tool environments." />
+        content="A minimalistic, lightweight, decentralised tool and skill manager for macOS and Linux. Manage project-specific tools and agentic skills for AI coding agents." />
     <meta property="og:image" content="https://luca.tools/images/og-image.png" />
     <meta property="og:url" content="https://luca.tools/" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Luca - Modern Tool Manager for macOS">
-    <meta name="twitter:description" content="A minimalistic, lightweight, decentralised tool manager for macOS to manage project-specific tool environments.">
+    <meta name="twitter:title" content="Luca - Modern Tool & Skill Manager">
+    <meta name="twitter:description" content="A minimalistic, lightweight, decentralised tool and skill manager for macOS and Linux. Manage project-specific tools and agentic skills for AI coding agents.">
     <meta name="twitter:image" content="https://luca.tools/images/og-image.png">
 
     <!-- Google Analytics -->
@@ -45,14 +45,14 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Luca",
-      "operatingSystem": "macOS",
+      "operatingSystem": "macOS, Linux",
       "applicationCategory": "DeveloperApplication",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
       },
-      "description": "A minimalistic decentralised tool manager for macOS to manage project-specific tool environments.",
+      "description": "A minimalistic decentralised tool and skill manager for macOS and Linux to manage project-specific tool environments and agentic skills for AI coding agents.",
       "image": "https://luca.tools/images/luca-logo-alt.svg",
       "url": "https://luca.tools/"
     }
@@ -70,15 +70,17 @@
 
             <h1>Luca</h1>
 
-            <p class="tagline">A minimalistic, lightweight, decentralised tool manager for macOS to manage project-specific tool
-                environments.</p>
+            <p class="tagline">A minimalistic, lightweight, decentralised tool and skill manager for macOS and Linux to manage
+                project-specific tool environments and agentic skills for AI coding agents.</p>
 
             <p style="max-width: 800px; margin: 0 auto 2rem;">Luca helps developers install, manage, and activate
-                specific versions of development tools in their projects
-                without polluting your global PATH. For more information, check out our
+                specific versions of development tools and agentic skills in their projects.
+                Tools are version-pinned per project without polluting your global PATH. Skills are installed from Git
+                repositories and symlinked into agent-specific directories for 40+ AI coding agents including Claude Code,
+                Cursor, and GitHub Copilot. For more information, check out our
                 <a href="https://github.com/LucaTools/Luca" target="_blank">GitHub repository</a>,
-                <a href="https://luca.tools/Luca/documentation/lucacore/" target="_blank">documentation</a>, or
-                <a href="https://luca.tools/Luca/tutorials/luca" target="_blank">tutorial</a>.
+                <a href="https://luca.tools/Luca/documentation/lucacli/" target="_blank">documentation</a>, or
+                <a href="https://luca.tools/Luca/tutorials/luca" target="_blank">tutorials</a>.
             </p>
 
             <p style="text-align: center; margin-bottom: 1rem; font-weight: 600;">Get Started</p>
@@ -101,7 +103,7 @@
                         <div class="terminal-content" id="terminal-content"></div>
                     </div>
                 </div>
-                <p class="demo-caption">See Luca in action - simple installation and immediate tool availability</p>
+                <p class="demo-caption">See Luca in action - tool installation, skill management, and immediate availability</p>
             </div>
 
             <div class="features grid-3">
@@ -122,6 +124,21 @@
                     <h3>Zero Configuration</h3>
                     <p>Either create a simple Lucafile or install individual tools. No complex setup, no lockfiles, no
                         global PATH pollution.</p>
+                </div>
+            </div>
+
+            <div class="features grid-3">
+                <div class="feature card">
+                    <div class="feature-icon">🧩</div>
+                    <h3>Agentic Skills</h3>
+                    <p>Install skills from any Git repository for your AI coding agents. Skills are Markdown files with
+                        YAML frontmatter, symlinked into agent-specific directories.</p>
+                </div>
+                <div class="feature card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Multi-Agent Support</h3>
+                    <p>Support for 40+ AI coding agents out of the box — Claude Code, Cursor, GitHub Copilot, Windsurf,
+                        and many more. Each agent gets skills in its own directory format.</p>
                 </div>
             </div>
         </div>
@@ -153,6 +170,27 @@ $ tuist version
                 </div>
             </div>
 
+            <h2>Skills Quick Start</h2>
+
+            <div class="command-examples grid-3">
+                <div class="example card">
+                    <div class="example-title">
+                        <span class="command">Step 1: Install Skills</span>
+                    </div>
+                    <p class="example-description">Install skills from a Git repository for all configured agents:</p>
+                    <pre><code>luca install vercel-labs/agent-skills</code></pre>
+                </div>
+
+                <div class="example card no-copy">
+                    <div class="example-title">
+                        <span class="command">Step 2: Skills Are Ready</span>
+                    </div>
+                    <p class="example-description">Skills are symlinked to agent-specific directories and immediately available:</p>
+                    <pre><code>.claude/skills/frontend-design.md
+.agents/skills/frontend-design.md</code></pre>
+                </div>
+            </div>
+
             <h2>Lucafile</h2>
 
             <div class="command-examples grid-3">
@@ -162,19 +200,24 @@ $ tuist version
                     </div>
                     <p class="example-description">Create a <code>Lucafile</code> in your project directory:</p>
                     <pre><code>tools:
-- name: SwiftLint
-  version: 0.62.0
-  url: https://github.com/realm/SwiftLint/releases/download/0.62.0/portable_swiftlint.zip
-- name: Tuist
-  version: 4.80.0
-  url: https://github.com/tuist/tuist/releases/download/4.80.0/tuist.zip</code></pre>
+  - name: SwiftLint
+    version: 0.62.0
+    url: https://github.com/realm/SwiftLint/releases/download/0.62.0/portable_swiftlint.zip
+
+skills:
+  - name: frontend-design
+    repository: vercel-labs/agent-skills
+
+agents:
+  - claude-code
+  - github-copilot</code></pre>
                 </div>
 
                 <div class="example card">
                     <div class="example-title">
                         <span class="command">Step 2: Install Tools</span>
                     </div>
-                    <p class="example-description">Install all tools defined in the Lucafile:</p>
+                    <p class="example-description">Install all tools and skills defined in the Lucafile:</p>
                     <pre><code>luca install</code></pre>
                 </div>
 
@@ -182,9 +225,10 @@ $ tuist version
                     <div class="example-title">
                         <span class="command">Step 3: Use Your Tools</span>
                     </div>
-                    <p class="example-description">Use your project-specific tool versions:</p>
+                    <p class="example-description">Tools and skills are immediately available:</p>
                     <pre><code>swiftlint --help
-tuist --help</code></pre>
+# Skills are ready for your AI agents
+ls .claude/skills/</code></pre>
                 </div>
             </div>
         </section>
@@ -209,12 +253,22 @@ tuist --help</code></pre>
                     <h3>3. Use Locally</h3>
                     <p>Tools are symlinked to:</p>
                     <p><code>.luca/tools/</code></p>
-                    <p>in your project directory, making them immediately available.</p>
+                    <p>in your project directory which is added to $PATH, making them immediately available.</p>
                 </div>
                 <div class="step card">
                     <div class="feature-icon">🤝</div>
                     <h3>4. Share Settings</h3>
                     <p>Commit your Lucafile to ensure all team members use identical tool versions.</p>
+                </div>
+                <div class="step card">
+                    <div class="feature-icon">🧩</div>
+                    <h3>5. Define Skills</h3>
+                    <p>Specify skills in your Lucafile with a repository reference and target agents.</p>
+                </div>
+                <div class="step card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>6. Skills Auto-Link</h3>
+                    <p>Skills are cloned and symlinked to each agent's directory (e.g., <code>.claude/skills/</code>). Agents discover them automatically.</p>
                 </div>
             </div>
         </section>
@@ -333,6 +387,38 @@ tuist:
   location: /Users/alberto/.luca/tools/tuist/4.78.0/tuist</code></pre>
                 </div>
             </div>
+            <div class="command-examples grid-3">
+                <div class="example card no-copy">
+                    <div class="example-title">
+                        <span class="command">List Agents</span>
+                    </div>
+                    <p class="example-description">List all supported AI coding agents and their skill paths:</p>
+                    <pre><code>luca agents
+
+Id               Project Skills Path
+───────────────  ─────────────────────
+claude-code      .claude/skills
+cursor           .agents/skills
+github-copilot   .agents/skills
+opencode         .agents/skills
+windsurf         .windsurf/skills</code></pre>
+                </div>
+                <div class="example card">
+                    <div class="example-title">
+                        <span class="command">Uninstall Skills</span>
+                    </div>
+                    <p class="example-description">Remove installed skills from agent directories:</p>
+                    <pre><code>luca uninstall prepare-pull-requestcreate-implementation-plan</code></pre>
+                </div>
+                <div class="example card">
+                    <div class="example-title">
+                        <span class="command">Install Specific Skill</span>
+                    </div>
+                    <p class="example-description">Install a single skill from a repository:</p>
+                    <pre><code>luca install vercel-labs/agent-skills \
+  --skill frontend-design</code></pre>
+                </div>
+            </div>
         </section>
 
         <section class="usage usage-section">
@@ -345,7 +431,7 @@ tuist:
                     </div>
                     <p class="example-description">Luca requires:</p>
                     <ul class="requirements-list">
-                        <li>macOS 13.0 or later</li>
+                        <li>macOS 13.0 or later, or Linux x86_64</li>
                         <li>Swift 5.7 or later (for building from source)</li>
                     </ul>
                 </div>
@@ -368,8 +454,8 @@ cp -f .build/release/luca /usr/local/bin/luca</code></pre>
         <div class="container">
             <div class="footer-links">
                 <a href="https://github.com/LucaTools/Luca" target="_blank">GitHub</a>
-                <a href="https://luca.tools/Luca/documentation/lucacore/" target="_blank">Documentation</a>
-                <a href="https://luca.tools/Luca/tutorials/luca" target="_blank">Tutorial</a>
+                <a href="https://luca.tools/Luca/documentation/lucacli/" target="_blank">Documentation</a>
+                <a href="https://luca.tools/Luca/tutorials/luca" target="_blank">Tutorials</a>
                 <a href="/manifesto.html">Manifesto</a>
                 <a href="https://github.com/LucaTools/Luca/issues" target="_blank">Report Issues</a>
                 <a href="http://github.com/LucaTools/Luca/blob/main/.github/CONTRIBUTING.md" target="_blank">Contribute</a>
