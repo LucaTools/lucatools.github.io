@@ -9,8 +9,6 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/images/favicon.svg' }],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/favicon-32x32.png' }],
-    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/apple-touch-icon.png' }],
     ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-6KPB6Y4G0Q' }],
     ['script', {}, "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6KPB6Y4G0Q');"],
     ['meta', { property: 'og:image', content: 'https://luca.tools/images/og-image.png' }],
