@@ -5,7 +5,6 @@ export default defineConfig({
   description: 'A minimalistic, decentralised tool, skill, and pipeline manager for macOS and Linux.',
   appearance: 'dark',
   cleanUrls: true,
-  srcExclude: ['**/superpowers/**'],
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/images/favicon.svg' }],
