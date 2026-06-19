@@ -1,3 +1,3 @@
 # Luca Website
 
-Simple and modern static website for the Luca CLI tool.
+VitePress documentation site for the Luca CLI tool. Hosted at [luca.tools](https://luca.tools).

@@ -65,18 +65,19 @@ tools:
     desiredBinaryName: firebase
 ```
 
-## Spec File Priority
+## Spec File Names
 
-Luca looks for a spec file in the current directory in this order:
+Luca discovers spec files by looking for any file in the current directory whose name starts with `Lucafile`, `Toolfile`, or `Skillfile`. All names accept the same YAML structure.
 
-1. `Lucafile`
-2. `Lucafile.yml`
-3. `Toolfile`
-4. `Toolfile.yml`
-5. `Skillfile`
-6. `Skillfile.yml`
+```
+Lucafile          # default
+Lucafile.yml      # YAML extension variant
+Toolfile          # tool-only file
+Skillfile         # skill-only file
+Lucafile-ci       # named variant (e.g. for CI-only tools)
+```
 
-All names accept the same YAML structure. The alternative names are convenient when you keep tool and skill definitions in separate files.
+Named variants (suffixed with `-<name>`) let you maintain separate specs for different contexts — for example `Lucafile-dev` for development tools and `Lucafile-ci` for CI tools — without mixing them in a single file.
 
 ## Installing Only Tools
 

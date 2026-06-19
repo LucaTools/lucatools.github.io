@@ -23,10 +23,10 @@ tools:
 
 Supported algorithms: `md5`, `sha1`, `sha256`, `sha512`.
 
-You can compute a checksum with:
+You can compute a checksum by downloading the asset and running:
 
 ```bash
-luca calculate-checksum --url https://github.com/tuist/tuist/releases/download/4.80.0/tuist.zip --algorithm sha256
+luca calculate-checksum ./tuist.zip --algorithm sha256
 ```
 
 ## Security Warnings
