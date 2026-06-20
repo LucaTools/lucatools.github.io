@@ -59,10 +59,10 @@ jobs:
           install: true
 
       - name: Generate project
-        run: .luca/tools/tuist generate
+        run: tuist generate
 
       - name: Build
-        run: .luca/tools/swiftlint lint --strict
+        run: swiftlint lint --strict
 ```
 
 ## On the GitHub Marketplace
