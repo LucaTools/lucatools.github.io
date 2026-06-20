@@ -12,7 +12,7 @@ Add a `skills:` section to your Lucafile to declare which skills to install alon
 ```yaml
 ---
 skills:
-  - name: swift-testing-expert          # Install a specific skill by name (optional)
+  - name: swift-testing-expert            # Install a specific skill by name (optional)
     repository: AvdLee/Swift-Testing-Agent-Skill
 
   - repository: vercel-labs/agent-skills  # Omit name to install all skills from the repo
