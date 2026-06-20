@@ -22,8 +22,8 @@ luca init
 tools:
   - name: ToolName              # Logical name used for installation and listing
     version: 1.2.3              # Version string (used for caching and display)
-    url: https://...            # URL to a binary archive (.zip) or a raw executable
-    binaryPath: path/to/bin    # Path inside the archive to the binary (omit for raw executables)
+    url: https://...            # URL to a binary archive or a raw executable
+    binaryPath: path/to/bin     # Path inside the archive to the binary (omit for raw executables)
     desiredBinaryName: toolname # Override the binary name stored locally (raw executables only)
     checksum: e0a6540d...       # Hash of the asset for integrity verification (recommended)
     algorithm: sha256           # Hash algorithm: md5, sha1, sha256, or sha512
@@ -36,7 +36,7 @@ tools:
 | `name` | Yes | Logical name. Used for `luca uninstall <name>`, `luca linked`, and caching. |
 | `version` | Yes | Version string. Determines the cache path `~/.luca/tools/<name>/<version>/`. |
 | `url` | Yes | Remote URL to a `.zip` archive or a raw executable. |
-| `binaryPath` | If archive | Path to the binary inside the archive. Omit when `url` points to a raw executable. |
+| `binaryPath` | No | Path to the binary inside the archive. Omit when `url` points to a raw executable. |
 | `desiredBinaryName` | No | Override the local binary name. Only valid when `url` is a raw executable. |
 | `checksum` | No | Hash of the downloaded asset. Strongly recommended — Luca warns when missing. |
 | `algorithm` | No | Hash algorithm. Defaults to `sha256`. Options: `md5`, `sha1`, `sha256`, `sha512`. |
