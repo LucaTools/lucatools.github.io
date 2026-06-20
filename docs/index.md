@@ -1,11 +1,11 @@
 ---
 layout: home
-title: Luca — Tool, Skill & Pipeline Manager
-description: A minimalistic, decentralised tool, skill, and pipeline manager for macOS and Linux.
+title: Luca — Tool, Skill & Task Manager
+description: Manage tools, agentic skills and tasks your way. On macOS and Linux.
 
 hero:
   name: "Luca"
-  tagline: "A minimalistic, decentralised tool, skill, and pipeline manager for macOS and Linux."
+  tagline: "Manage tools, agentic skills and tasks your way. On macOS and Linux."
   image:
     src: /images/luca-logo-alt.svg
     alt: Luca

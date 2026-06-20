@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: 'Luca',
-  description: 'A minimalistic, decentralised tool, skill, and pipeline manager for macOS and Linux.',
+  description: 'Manage tools, agentic skills and tasks your way. On macOS and Linux.',
   appearance: 'dark',
   cleanUrls: true,
 
@@ -20,7 +20,7 @@ export default defineConfig({
       operatingSystem: 'macOS, Linux',
       applicationCategory: 'DeveloperApplication',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      description: 'A minimalistic decentralised tool, skill, and pipeline manager for macOS and Linux.',
+      description: 'Manage tools, agentic skills and tasks your way. On macOS and Linux.',
       image: 'https://luca.tools/images/luca-logo-alt.svg',
       url: 'https://luca.tools/',
     })],
