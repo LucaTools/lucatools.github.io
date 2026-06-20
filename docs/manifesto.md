@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: doc
+sidebar: false
 title: Manifesto
 description: Why decentralized tool management matters and why the infrastructure already exists.
 ---
@@ -12,13 +13,15 @@ description: Why decentralized tool management matters and why the infrastructur
 
 ## The Problem
 
-Standalone CLI tools — linters, formatters, code generators, utilities — are self-contained binaries. They have no transitive dependencies, no version conflicts with each other, no diamond dependency problems to solve. Yet we distribute them through the same heavyweight registries designed for libraries with complex dependency graphs.
+Standalone CLI tools (linters, formatters, code generators, utilities, etc.) are self-contained binaries. They have no transitive dependencies, no version conflicts with each other, no diamond dependency problems to solve. Yet we distribute them through the same heavyweight registries designed for libraries with complex dependency graphs.
 
-Homebrew, for example, wraps every tool in a formula that passes through a central review process, rebuilds bottles across a matrix of macOS versions, and pulls in a full tap repository. This is infrastructure built for managing system-level packages with deep dependency trees — not for delivering a single binary that is already compiled and ready to run.
+Homebrew, for example, wraps every tool in a formula that passes through a central review process, rebuilds bottles across a matrix of macOS versions, and pulls in a full tap repository. This is infrastructure built for managing system-level packages with deep dependency trees - not for delivering a single binary that is already compiled and ready to run.
 
 The result is process overhead without a matching benefit. Homebrew formulas need maintainer approval. CocoaPods trunk demands registration. Every tool that flows through a central registry inherits the registry's bottlenecks, politics, and attack surface.
 
-Even tools designed specifically for CLI tool management add unnecessary layers. [**Mint**](https://github.com/yonaskolb/Mint) points directly to Git repositories (no registry), but it clones source and compiles locally — requiring Xcode and the Swift toolchain even when the binary is already built and published. [**mise**](https://github.com/jdx/mise) is a capable polyglot manager, but it bundles version management, task running, environment variables, a plugin system, and its own tool registry: a Swiss-army-knife when all you need is to download a binary. Both are good tools solving broader problems. For the narrow case of installing a pre-built standalone binary, they carry unnecessary complexity.
+Even tools designed specifically for CLI tool management add unnecessary layers. [**Mint**](https://github.com/yonaskolb/Mint) points directly to Git repositories (no registry), but it clones source and compiles locally — requiring Xcode and the Swift toolchain even when the binary is already built and published. [**mise**](https://github.com/jdx/mise) is a capable polyglot manager, it bundles version management, task running, environment variables, a plugin system, and its own tool registry: an excellent Swiss-army-knife. Both are good tools solving broader problems.
+
+Luca is born to addresses the narrow case yet common need of installing pre-built standalone binaries.
 
 ## The Security Reality
 
