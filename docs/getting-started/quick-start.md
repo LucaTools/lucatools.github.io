@@ -19,7 +19,7 @@ This creates a starter `Lucafile` in the current directory.
 
 ## 2. Edit the Lucafile
 
-Open the generated `Lucafile` and add a tool, a skill, and a pipeline reference:
+Open the generated `Lucafile` and add a tool and a skill:
 
 ```yaml
 ---
@@ -48,7 +48,9 @@ Luca downloads `SwiftLint` to `~/.luca/tools/SwiftLint/0.61.0/` and symlinks it 
 Verify the tool is available:
 
 ```bash
-.luca/tools/swiftlint --version
+which swiftlint
+# $PWD/.luca/tools/swiftlint
+swiftlint --version
 # 0.61.0
 ```
 
