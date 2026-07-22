@@ -32,6 +32,7 @@ tools:
 skills:
   - name: swift-testing-expert
     repository: AvdLee/Swift-Testing-Agent-Skill
+    version: 1.2.0
 
 agents:
   - claude-code

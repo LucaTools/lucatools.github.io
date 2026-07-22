@@ -18,7 +18,7 @@ luca install --global
 Install a specific skill globally from a repository:
 
 ```bash
-luca install AvdLee/Swift-Testing-Agent-Skill --skill swift-testing-expert --global
+luca install AvdLee/Swift-Testing-Agent-Skill --ref 1.2.0 --skill swift-testing-expert --global
 ```
 
 Use a custom global Lucafile:
@@ -40,7 +40,9 @@ Example `~/.config/luca/Lucafile`:
 skills:
   - name: swift-testing-expert
     repository: AvdLee/Swift-Testing-Agent-Skill
+    version: 1.2.0
   - repository: vercel-labs/agent-skills
+    version: latest
 
 agents:
   - claude-code
