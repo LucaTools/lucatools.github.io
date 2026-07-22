@@ -9,19 +9,33 @@ Skills are Markdown files hosted in Git repositories that extend the capabilitie
 
 ## Install All Skills from a Repository
 
+Individual skill installs require a version, pinned with `--ref`:
+
 ```bash
-luca install AvdLee/Swift-Testing-Agent-Skill
+luca install AvdLee/Swift-Testing-Agent-Skill --ref 1.2.0
 ```
 
-Luca clones the repository, discovers all skills inside it, and symlinks them into every supported agent's skill directory in your project.
+Luca clones the repository at that tag or commit, discovers all skills inside it, and symlinks them into every supported agent's skill directory in your project.
 
 ## Install Specific Skills
 
 Use `--skill` to install only named skills from a repository:
 
 ```bash
-luca install vercel-labs/agent-skills --skill web-design-guidelines --skill deploy-to-vercel
+luca install vercel-labs/agent-skills --ref 1.2.0 --skill web-design-guidelines --skill deploy-to-vercel
 ```
+
+## Pinning a Version
+
+`--ref` accepts a git tag, a commit SHA, or the literal value `latest` (always resolves to the repository's current default-branch HEAD commit):
+
+```bash
+luca install vercel-labs/agent-skills --ref 1.2.0
+luca install owner/repo --ref abc1234
+luca install owner/repo --ref latest
+```
+
+Unlike a pinned tag or SHA, `--ref latest` re-checks the remote repository on every install, so the resolved commit — and therefore what gets installed — can change between runs as the upstream repository advances. See [Lucafile: skills](/skills/lucafile-skills) for the same behavior when declaring `version:` in a Lucafile.
 
 ## Target Specific Agents
 
@@ -45,6 +59,15 @@ luca install vercel-labs/agent-skills --use-npx
 
 ```bash
 luca installed --skills
+```
+
+Output lists each installed version per skill name — including multiple versions when the same skill has been installed at different refs:
+
+```
+Installed skills:
+  swift-concurrency       2.1.1, abc1234
+  swift-testing-expert    1.2.0
+  deploy-scripts          v3.0.0
 ```
 
 ## Uninstalling Skills
