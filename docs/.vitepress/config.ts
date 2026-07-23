@@ -58,6 +58,7 @@ export default defineConfig({
           { text: 'Lucafile: tools', link: '/tools/lucafile-tools' },
           { text: 'Checksums & Security', link: '/tools/checksums-and-security' },
           { text: 'Version Pinning', link: '/tools/version-pinning' },
+          { text: 'Private Repos & GHE', link: '/tools/private-repos-and-ghe' },
         ],
       },
       {

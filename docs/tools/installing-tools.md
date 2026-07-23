@@ -31,6 +31,8 @@ luca install
 
 See [Lucafile: tools](/tools/lucafile-tools) for the full spec format.
 
+For tools hosted in private repositories on `github.com` or GitHub Enterprise Server, see [Private Repos & GitHub Enterprise](/tools/private-repos-and-ghe).
+
 ## Listing Installed Tools
 
 List all tool versions cached on the machine:

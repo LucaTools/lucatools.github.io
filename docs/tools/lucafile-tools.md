@@ -35,7 +35,7 @@ tools:
 |---|---|---|
 | `name` | Yes | Logical name. Used for `luca uninstall <name>`, `luca linked`, and caching. |
 | `version` | Yes | Version string. Determines the cache path `~/.luca/tools/<name>/<version>/`. |
-| `url` | Yes | Remote URL to a `.zip` archive or a raw executable. |
+| `url` | Yes | Remote URL to a `.zip` archive or a raw executable. See [Private Repos & GitHub Enterprise](/tools/private-repos-and-ghe) for authenticating URLs on private hosts. |
 | `binaryPath` | No | Path to the binary inside the archive. Omit when `url` points to a raw executable. |
 | `desiredBinaryName` | No | Override the local binary name. Only valid when `url` is a raw executable. |
 | `checksum` | No | Hash of the downloaded asset. Strongly recommended — Luca warns when missing. |
