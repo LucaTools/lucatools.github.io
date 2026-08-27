@@ -5,7 +5,8 @@ description: Manage tools, agentic skills and tasks your way. On macOS and Linux
 
 hero:
   name: "Luca"
-  tagline: "Manage tools, agentic skills and tasks your way. On macOS and Linux."
+  text: "Manage tools, agentic skills and tasks your way."
+  tagline: "On macOS and Linux."
   image:
     src: /images/luca-logo-alt.svg
     alt: Luca
@@ -37,57 +38,3 @@ features:
     title: macOS & Linux
     details: Universal binary for macOS (arm64 + x86_64) and static binary for Linux. CI-ready with the setup-luca GitHub Action.
 ---
-
-<div class="home-install">
-
-## Install
-
-```bash
-curl -fsSL https://luca.tools/install.sh | bash
-```
-
-Pin a specific CLI version before installing:
-
-```bash
-echo "0.21.0" > .luca-version
-curl -fsSL https://luca.tools/install.sh | bash
-```
-
-</div>
-
-<div class="home-whats-new">
-
-## What's New — Pipeline Engine
-
-Since v0.19, Luca ships a built-in task runner. Define shell pipelines in YAML and run them with `luca run`. Full support for typed parameters, conditional task execution, `.env` files, per-task working directories, and `--dry-run` previews.
-
-```yaml
-# pipelines/ci.yml
-parameters:
-  - name: flavor
-    default: debug
-
-env:
-  CI: "true"
-
-tasks:
-  - name: Generate project
-    command: tuist generate
-    working-directory: ios/
-
-  - name: Run tests
-    command: swift test --configuration ${flavor}
-
-  - name: Upload artifact
-    command: ./scripts/upload.sh
-    when: ${flavor} == release
-    continue-on-error: true
-```
-
-```bash
-luca run ci --param flavor=release
-```
-
-[Explore the Pipeline Engine →](/pipelines/overview)
-
-</div>
